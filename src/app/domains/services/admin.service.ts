@@ -35,13 +35,10 @@ export class AdminService {
           admin_id: Number(user.userId),
           admin_login: user.userLogin,
           is_active_admin: user.userEnabled,
-          admin_birth_date: null,   // у пользователей нет даты рождения в моках
+          admin_birth_date: null,  
           created_at: null
         }));
       })
     );
   }
-
-  // Остальные методы (getAdminById, createAdmin, updateAdmin, deleteAdmin) 
-  // пока можно закомментировать или удалить, т.к. для ДЗ не нужны
 }

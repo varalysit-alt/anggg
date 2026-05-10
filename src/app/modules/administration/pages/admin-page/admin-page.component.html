@@ -1,0 +1,34 @@
+
+<div class="admin-container">
+  <h2>Список администраторов</h2>
+
+  <table class="admin-table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Логин</th>
+        <th>Статус</th>
+        <th>Дата рождения</th>
+        <th>Дата создания</th>
+        <th>Действия</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let admin of admins">
+        <td>{{ admin.admin_id }}</td>
+        <td>{{ admin.admin_login }}</td>
+        <td>
+          <span [class.active]="admin.is_active_admin">
+            {{ admin.is_active_admin ? 'Активен' : 'Заблокирован' }}
+          </span>
+        </td>
+        <td>{{ admin.admin_birth_date | date:'dd.MM.yyyy' || '-' }}</td>
+        <td>{{ admin.created_at | date:'dd.MM.yyyy HH:mm' }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div *ngIf="admins.length === 0" class="no-data">
+    Админов нет
+  </div>
+</div>
